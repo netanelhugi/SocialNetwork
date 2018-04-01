@@ -4,6 +4,13 @@
 
 using namespace std; 
 
+/**
+ *assignment 3 solution 
+ *id: 203553490
+ *
+ *my unit test is in main.cpp file.
+ */
+
 //constructor with option to insert name to member
 Member::Member(string fullName) {  
     this->name = fullName;
