@@ -15,23 +15,23 @@ using namespace std;
 Member::Member(string fullName) {  
     this->name = fullName;
     //init follow numbers
-    this->numfollowers = 0;
-    this->numFollowing = 0;
+    this->numFollowers0 = 0;
+    this->numFollowing0 = 0;
     //give a unique id for the member
     this->id = MemberID++;
     //counet members
-    MemberNum++; 
+    MembersCount++; 
 }
 
 //Default constructor
 Member::Member(){
     //init follow numbers
-    this->numFollowing = 0;
-    this->numfollowers = 0;
+    this->numFollowing0 = 0;
+    this->numFollowers0 = 0;
     //give a unique id for the member
     this->id = MemberID++;
     //counet members
-    MemberNum++;
+    MembersCount++;
 }
 
 void Member::follow(Member& m) {
@@ -41,10 +41,10 @@ void Member::follow(Member& m) {
     }
     //check if i already follow him
     else if(this->checkFollow(m)==false){
-        following.insert(following.begin()+numFollowing,m);
-        this->numFollowing++; 
-        m.followers.insert(m.followers.begin()+m.numfollowers,*this);
-        m.numfollowers++;
+        following.insert(following.begin()+numFollowing0,m);
+        this->numFollowing0++; 
+        m.followers.insert(m.followers.begin()+m.numFollowers0,*this);
+        m.numFollowers0++;
     }
     else{
         cout << "You are already following this member!\n";
@@ -63,27 +63,27 @@ void Member::unfollow(Member& m){
 
         //delete the member from the vector
         following.erase(following.begin()+ing);
-        numFollowing--;
+        numFollowing0--;
         //delete the member from the vector
         m.followers.erase(m.followers.begin()+ers);
-        m.numfollowers--;
+        m.numFollowers0--;
     } 
 }
 
 //return the number of members this object follow
-int Member::getNumFollwing(){
-    return this->numFollowing;
+int Member::numFollowing(){
+    return this->numFollowing0;
 }
 
 //return the number of members who follow this object
-int Member::getNumFollwers(){
-    return this->numfollowers;
+int Member::numFollowers(){
+    return this->numFollowers0;
 }
 
 //function to check if this object follow m
 //by the id of the member
 bool Member::checkFollow(Member m){
-    for(int i=0; i<numFollowing; i++){     
+    for(int i=0; i<numFollowing0; i++){     
          if(following[i].id==m.id){
              return true;
          }
@@ -94,7 +94,7 @@ return false;
 
 //functions to find the index of member in vector
 int Member::findFollowingIndex(Member m){ 
-    for(int i=0; i<numFollowing; i++){     
+    for(int i=0; i<numFollowing0; i++){     
          if(following[i].id==m.id){
              return i;
          }
@@ -102,7 +102,7 @@ int Member::findFollowingIndex(Member m){
     return -1;
 }
 int Member::findFollowersIndex(Member t){
-    for(int i=0; i<numfollowers;i++){
+    for(int i=0; i<numFollowers0;i++){
         if(followers[i].id==t.id){
             return i;
         }
@@ -112,14 +112,18 @@ int Member::findFollowersIndex(Member t){
 
 //print the vectors
 void Member::printFollowingList(){
-    for(int i=0; i<numFollowing; i++){
+    for(int i=0; i<numFollowing0; i++){
         cout << following[i].name << ", id: " <<following[i].id<< "\n";
     }
 }
 void Member::printFollowersList(){
-    for(int i=0; i<numfollowers; i++){
+    for(int i=0; i<numFollowers0; i++){
         cout << followers[i].name << ", id: " <<followers[i].id<< "\n";
     }
+}
+
+int Member::count(){
+    return MembersCount;
 }
 
 // int main(){
