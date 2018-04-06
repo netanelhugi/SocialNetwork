@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include "Member.hpp"
+#include "Member.h"
 
 using namespace std; 
 
@@ -8,7 +8,7 @@ using namespace std;
  *assignment 3 solution 
  *id: 203553490
  *
- *my unit test is in main.cpp file.
+ *my unit test is in tests.cpp file.
  */
 
 //constructor with option to insert name to member
@@ -32,6 +32,12 @@ Member::Member(){
     this->id = MemberID++;
     //counet members
     MembersCount++;
+}
+
+
+Member::~Member(){
+	MembersCount--;
+	this->followers.clear();
 }
 
 void Member::follow(Member& m) {
@@ -126,42 +132,3 @@ int Member::count(){
     return MembersCount;
 }
 
-// int main(){
-
-//     Member a("a");
-//     Member b("b");
-//     Member c("c");
-//     Member d("d");
-//     Member ofek;
-
-//     a.follow(b);
-//     c.follow(b);
-//     a.follow(c);
-//     // a.follow(d);
-//     ofek.follow(b);
-
-//     ofek.printFollowingList();
-
-
-//     // cout << "check num followers0: " << b.getNumFollwers()<< "\n";
-    
-
-//         // cout << "my network members: " << MemberNum << "\n";
-//         //a.printFollowingList();
-//         // b.printFollowersList();
-
-//         // a.unfollow(b);
-//         // cout << "after unfollow\n";
-//         // //a.printFollowingList();
-
-//         // cout << "followers\n";
-
-//         // b.printFollowersList();
-
-//         //cout << a.getNumFollwing() << "\n";
-//         //cout << a.checkFollow(b) << "\n";
-//         //cout << a.findFollowingIndex(c) << "\n";
-
-//     return 0;
-
-// }
