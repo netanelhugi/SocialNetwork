@@ -24,7 +24,7 @@ void test2(){
 }
 
 void test3(){
-    //test if member can unfollow another members without he follow him
+    //test if member can unfollow another members without he follow him.
     
     avi.unfollow(beni);//You are not following this member!
 }
