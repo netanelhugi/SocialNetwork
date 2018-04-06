@@ -4,8 +4,8 @@
 
 using namespace std;
 
-int MembersCount = 0;//static variable that count the number of members
-int MemberID = 100000;//unique number for each member
+static int MembersCount = 0;//static variable that count the number of members
+static int MemberID = 100000;//unique number for each member
 
 class Member{
 
@@ -18,7 +18,7 @@ class Member{
     public:
     Member();//Default constructor
     Member(string fullName);//constructor with option to insert name to member
-    ~Member();
+    //~Member();
     
     //follow&unfollow function
     void follow(Member& m);
@@ -26,8 +26,10 @@ class Member{
     
     int numFollowers();//return the number of members this object follow
     int numFollowing();//return the number of members who follow this object
+
     vector<Member> following;//vector of the members this object follow
     vector<Member> followers;//vector of the members who follow this object
+
     bool checkFollow(Member m);//function to check if this object follow m
     static int count();
 
@@ -38,5 +40,7 @@ class Member{
     //print the vector
     void printFollowingList();
     void printFollowersList();
+
+    void setNUM(int n);
 
 };

@@ -12,7 +12,8 @@ using namespace std;
  */
 
 //constructor with option to insert name to member
-Member::Member(string fullName) {  
+Member::Member(string fullName) { 
+     
     this->name = fullName;
     //init follow numbers
     this->numFollowers0 = 0;
@@ -35,10 +36,9 @@ Member::Member(){
 }
 
 
-Member::~Member(){
-	MembersCount--;
-	this->followers.clear();
-}
+// Member::~Member(){
+//     cout << this->id << "\n";
+// }
 
 void Member::follow(Member& m) {
     //check if i try to follow me
