@@ -16,7 +16,7 @@ void test1() {
 }
 
 void test2(){
-    //test to chack if member can follow himself
+    //test to chack if member can follow himself/
     Member eli;
 
     eli.follow(eli);//You can not follow yourself!
