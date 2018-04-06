@@ -128,7 +128,7 @@ void Member::printFollowersList(){
     }
 }
 
-int Member::count(){
+int Member::count(){//
     return MembersCount;
 }
 
