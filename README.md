@@ -9,7 +9,3 @@ In this task, we implemented a class that represents a social network user. The 
 
 ```
 g++ -std=c++11 main.cpp
-
-
-
-
